@@ -51,6 +51,15 @@ public class MainActivity extends AppCompatActivity implements Communicator{
 
         setMainFragment();
     }
+
+    @Override
+    public void setMainFragment() {
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        FragmentMain f1 = new FragmentMain();
+        fragmentTransaction.replace(R.id.fragment_container, f1);
+        fragmentTransaction.commit();
+    }
     @Override
     public void setFragmentSubjectSelector() {
         FragmentManager fm = getFragmentManager();
@@ -235,14 +244,7 @@ public class MainActivity extends AppCompatActivity implements Communicator{
     }
 
 
-    @Override
-    public void setMainFragment() {
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        FragmentMain f1 = new FragmentMain();
-        fragmentTransaction.replace(R.id.fragment_container, f1);
-        fragmentTransaction.commit();
-    }
+
 
     public ActiveVerbalSentence getActiveVerbalSentence(){
         return activeVerbalSentence;
